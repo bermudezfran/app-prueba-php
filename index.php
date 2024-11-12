@@ -21,6 +21,21 @@ curl_close($ch);
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
+    }
+    .next-movie {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
+    }
+    .descripcion {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+    .p-descripcion {
+        text-align: left;
     }
 </style>
 <head>
@@ -32,7 +47,7 @@ curl_close($ch);
 </head>
 <main class="center-main">
     <article>
-        <h3><?= $data["title"] ?> se estrena en <?= $data["days_until"] ?> dias</h3>
+        <h3><?= $data["title"] ?> se estrena en <?= $data["days_until"] ?> días</h3>
     </article>
     <section>
         <img src="<?= $data["poster_url"]; ?>" 
@@ -47,6 +62,12 @@ curl_close($ch);
     <hr>
     <hgroup>
         <p class="padding-bottom">El estreno siguiente es <b><?= $data["following_production"]["title"] ?></b></p>
-        <img src="<?= $data["following_production"]["poster_url"] ?>" alt="next movie" width="400" style="border-radius: 20px">
+        <div class="next-movie">
+            <img src="<?= $data["following_production"]["poster_url"] ?>" alt="next movie" width="400" style="border-radius: 20px">
+            <div class="descripcion">
+                <h4>Descripción</h4>
+                <p class="p-descripcion"><?= $data["following_production"]["overview"] ?></p>
+            </div>
+        </div>
     </hgroup>
 </main>
