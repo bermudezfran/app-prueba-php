@@ -46,19 +46,18 @@ curl_close($ch);
     >
 </head>
 <main class="center-main">
-    <article>
+        <h1>Próxima pelicula de Marvel</h1>
         <h3><?= $data["title"] ?> se estrena en <?= $data["days_until"] ?> días</h3>
-    </article>
     <section>
         <img src="<?= $data["poster_url"]; ?>" 
         style="border-radius: 20px"
         width="400" alt="poster de la proxima pelicula de marvel: <?= $data["title"] ?>"/>
     </section>
-    <article>
+    <div>
         <h4>Fecha de estreno: <?= $data["release_date"] ?></h4>
         <h4>Descripción</h4>
         <p><?= $data["overview"] ?></p>
-    </article>
+    </div>
     <hr>
     <hgroup>
         <p class="padding-bottom">El estreno siguiente es <b><?= $data["following_production"]["title"] ?></b></p>
